@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 
 //for logging a user in
 enticate = async (req, res, next) => {
+    console.log('enticate')
     const {username, password} = req.body
     //remove any extra fields in the body
     req.body = {username: username, password: password}

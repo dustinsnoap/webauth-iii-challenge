@@ -10,8 +10,10 @@ const add_user = async user =>
 const get_users = async () =>
     await db('users')
 //value = {username: ''} || {id: ''} || etc.
-const get_user_by = async value =>
-    await db('users').first().where(value)
+const get_user_by = async value => {
+    console.log('made it to get user by')
+    return await db('users').first().where(value)
+}
 
 module.exports = {
     add_user,

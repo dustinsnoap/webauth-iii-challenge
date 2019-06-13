@@ -24,12 +24,14 @@ router.post('/register', warez.check_user, async (req, res) => {
 })
 router.post('/login', auth.enticate, async (req, res) => {
     try {
+        console.log('login')
         const user = await db.get_user_by({username: req.body.username})
         user
         ?   res.status(201).json({message: `login successful`, token: req.authorization})
         :   res.status(404).json({messgae: 'Wong!'})
     }
     catch (err) {
+        console.log('login',err)
         res.status(500).json(err)
     }
 })
